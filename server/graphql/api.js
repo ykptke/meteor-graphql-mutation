@@ -24,7 +24,7 @@ Picker.route('/graphql', function(params, req, res, next) {
 });
 
 
-Picker.route('/graphql/ide', Meteor.bindEnvironment( function(params, req, res) {
+Picker.route('/graphql/ide', (params, req, res) => {
   if(req.method === 'GET') {
     const {query, variables} = params.query;
     const html = RenderIde({query, variables});
@@ -49,4 +49,4 @@ Picker.route('/graphql/ide', Meteor.bindEnvironment( function(params, req, res) 
       res.end("Internal Error");
     }
   }
-}));
+});
